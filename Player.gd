@@ -22,13 +22,28 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
 	
-	# Block overlap speed for multiple keys pressed for same direction
-	if direction.length() > 1:
+	# If length > 0 there is at least 1 key is being pressed,
+	if direction.length() > 0:
 		direction = direction.normalized()
+		# We add animation if the key is being pressed
+		$AnimatedSprite2D.play()
+	else :
+		# We stop animation if there is no key being pressed		
+		$AnimatedSprite2D.stop()
 	
-	# moving_direction * character_speed * time
+	# Moving_direction * character_speed * time
 	position += direction * speed * delta
-	# limit player to not go outside of the window of the game
+	# Limit player to not go outside of the window of the game
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	if direction.x != 0:
+		# Handle logic if the player pressing left or right
+		$AnimatedSprite2D.animation = "Right"
+		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.flip_h = direction.x < 0
+	elif direction.y != 0:
+		# Handle logic if the player pressing up or down		
+		$AnimatedSprite2D.animation = "Up"
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.flip_v = direction.y > 0

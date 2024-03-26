@@ -18,6 +18,11 @@ run/main_scene="res://Player.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [input]
 
 move_right={
