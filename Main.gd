@@ -8,8 +8,10 @@ func _on_ready():
 
 func _on_mob_timer_timeout():
 	var mob_spawn_location = $MobPath/MobSpawnLocation
-	mob_spawn_location.unit_offset = randf() # Random mob spawn location # ERROR
-	
+	# Random mob spawn location
+	# mob_spawn_location.unit_offset = randf() # Godot 3
+	mob_spawn_location.progress_ratio = randf() # Godot 4
+
 	# Instantite the mob scene
 	var mob = mob_scene.instantiate()
 	# Add mob
