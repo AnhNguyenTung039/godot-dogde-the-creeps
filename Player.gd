@@ -1,12 +1,13 @@
 extends Area2D
 
+signal hit
+
 @export var speed = 400.0
 
 var screen_size = Vector2.ZERO
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	print("screen_size: ", screen_size)
 
 func _process(delta):
 	var direction = Vector2.ZERO	
@@ -47,3 +48,16 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "Up"
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.flip_v = direction.y > 0
+
+func start(new_position):
+	position = new_position
+	show()
+	$CollisionShape2D.disabled = false
+
+func _on_body_entered(body):
+	# hide the Player
+	hide()
+	# deactivate colision
+	# set_deferred is a safe way for physics interaction run first then after that we disabled the colision
+	$CollisionShape2D.set_deferred("disabled", true)
+	emit_signal("hit")

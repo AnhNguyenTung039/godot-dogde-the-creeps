@@ -23,7 +23,6 @@ func _on_mob_timer_timeout():
 	# Add the rotation to the mob after spawned
 	var direction =  mob_spawn_location.rotation + PI / 2
 	direction += randf_range(-PI / 4, PI / 4)
-	print("test: ", PI / 4)
 	mob.rotation = direction
 	
 	# Move the mob
