@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://do7hcb51yql4e"]
+[gd_scene load_steps=5 format=3 uid="uid://do7hcb51yql4e"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_7i5rm"]
 [ext_resource type="PackedScene" uid="uid://cd5cqbqh8jwpt" path="res://Mob.tscn" id="2_17duf"]
+[ext_resource type="PackedScene" uid="uid://roh8s8wki0ix" path="res://Player.tscn" id="3_jmw3d"]
 
 [sub_resource type="Curve2D" id="Curve2D_dt4vn"]
 _data = {
@@ -28,6 +29,9 @@ curve = SubResource("Curve2D_dt4vn")
 
 [node name="MobTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Player" parent="." instance=ExtResource("3_jmw3d")]
+position = Vector2(240, 320)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
