@@ -2,9 +2,17 @@ extends Node
 
 # Import Mob.tscn to the Main
 @export var mob_scene: PackedScene
+var score = 0
 
 func _on_ready():
 	randomize()
+
+func new_game():
+	score = 0
+	$ScoreTimer.start()
+
+func game_over():
+	$ScoreTimer.stop()
 
 func _on_mob_timer_timeout():
 	var mob_spawn_location = $MobPath/MobSpawnLocation
@@ -28,3 +36,8 @@ func _on_mob_timer_timeout():
 	# Move the mob
 	var velocity = Vector2(randf_range(mob.min_speed, mob.max_speed), 0)
 	mob.linear_velocity = velocity.rotated(direction)
+
+
+func _on_score_timer_timeout():
+	score += 1
+	$HUD.update_score(score)

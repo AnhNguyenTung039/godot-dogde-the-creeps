@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbm4dwjvp1slp"]
+
+[ext_resource type="Script" path="res://Hud.gd" id="1_r46k4"]
+[ext_resource type="FontFile" uid="uid://cb25b2dalr3qu" path="res://fonts/xolonium-regular.ttf" id="1_ujuqd"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_r46k4")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 26.0
+offset_right = 111.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ujuqd")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -110.0
+offset_right = 180.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ujuqd")
+theme_override_font_sizes/font_size = 60
+text = "Dodge the creeps"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -227.0
+offset_right = 56.5
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ujuqd")
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
