@@ -45,8 +45,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4x3b"]
-radius = 47.9972
-height = 134.014
+radius = 34.0196
+height = 91.9516
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_mask = 0
@@ -54,6 +54,7 @@ gravity_scale = 0.0
 script = ExtResource("1_kvcmx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_vx3pf")
 animation = &"walk"
 
@@ -62,7 +63,7 @@ rotation = 1.58156
 shape = SubResource("CapsuleShape2D_w4x3b")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(1.90735e-06, 9.53674e-07)
-scale = Vector2(5.1, 4.1)
+position = Vector2(3.09944e-06, 5.00679e-06)
+scale = Vector2(4.6, 3.4)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -12,6 +12,12 @@ func show_message(text):
 
 func show_game_over():
 	show_message("Game Over")
+	await($MessageTimer.timeout)
+	$MessageLabel.text = "Dodge the Creeps"
+	$MessageLabel.show()
+	# 1 time use Timer, after this line ran the Timer will be destroy
+	await(get_tree().create_timer(1.0).timeout)
+	$Button.show()
 
 func _on_button_pressed():
 	$Button.hide()
