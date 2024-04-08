@@ -9,9 +9,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_dt4vn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, -1, 719, 0, 0, 0, 0, 0, 0)
 }
-point_count = 4
+point_count = 5
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7i5rm")
